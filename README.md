@@ -5,13 +5,14 @@ PACL main contribution is to capture nonlinear associations between high-dimensi
 To evaluate performance of PACL, we conducted experiments with highdimensional gene expression data of patients in Glioblastoma
 Multiforme (GBM) and ovarian cancer.<br/>
 # Datasets:
-## GBM cancer
+## GBM Cancer
 [gbm_gene_expression.txt](https://github.com/cBioPortal/datahub/blob/master/public/gbm_tcga/data_expression.txt) <br/>
 [gbm_clinical_data.txt](https://github.com/cBioPortal/datahub/blob/master/public/gbm_tcga/data_bcr_clinical_data_patient.txt)<br/>
 
 ## Ovarian Cancer
 [Ovarian_gene_expression.txt](https://github.com/cBioPortal/datahub/blob/master/public/ov_tcga/data_expression.txt)<br/> [Ovarian_clinical_data.txt](https://github.com/cBioPortal/datahub/blob/master/public/ov_tcga/data_bcr_clinical_data_patient.txt)<br/>
-We downloaded the GBM cancer datasets of [gbm_gene_expression.txt](https://github.com/cBioPortal/datahub/blob/master/public/gbm_tcga/data_expression.txt) & [gbm_clinical_data.txt](https://github.com/cBioPortal/datahub/blob/master/public/gbm_tcga/data_bcr_clinical_data_patient.txt) and Ovarian cancer datasets [Ovarian_gene_expression.txt](https://github.com/cBioPortal/datahub/blob/master/public/ov_tcga/data_expression.txt)& [Ovarian_clinical_data.txt](https://github.com/cBioPortal/datahub/blob/master/public/ov_tcga/data_bcr_clinical_data_patient.txt).<br/>
+
+## Pathway data
 Then gene expression data is preprocessed such that all the samples in gene expression data has respective survival months and survival status from clinical data.
 We considered the four pathway databases: Kyoto
 Encyclopedia of Genes and Genomes (KEGG), Reactome,
