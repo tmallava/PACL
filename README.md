@@ -4,7 +4,7 @@ PACL main contribution is to capture nonlinear associations between high-dimensi
 
 To evaluate performance of PACL, we conducted experiments with highdimensional gene expression data of patients in Glioblastoma
 Multiforme (GBM) and ovarian cancer./
-Downloaded the datasets of data_expression.txt(https://github.com/cBioPortal/datahub/blob/master/public/gbm_tcga) and data_bcr_clinical_data_patient.txt(https://github.com/cBioPortal/datahub/blob/master/public/gbm_tcga) of GBM cancer.
+Downloaded the datasets of [data_expression.txt](https://github.com/cBioPortal/datahub/blob/master/public/gbm_tcga) and [data_bcr_clinical_data_patient.txt](https://github.com/cBioPortal/datahub/blob/master/public/gbm_tcga) of GBM cancer.
 Then gene expression data is preprocessed such that all the samples in gene expression data has respective survival months and status from 
 clinical data.
 # Requirements
