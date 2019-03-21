@@ -16,12 +16,7 @@ print("CUDA_DEVICE", CUDA_DEVICE)
 if CUDA:
     torch.cuda.set_device(CUDA_DEVICE)
 
-############ Loading Data######################	
-'path: path to input files'
-'all the input files must be in csv file format'
 
-input_data = pd.read_csv('path+ /gene_expression_data.csv', header = None) # input data has gene expression data and survival months
-adj_matrix = pd.read_csv('path + /adjacency_matrix.csv', header = None) # Load a bi-adjacency matrix of pathways and genes
 ##### initializing the RBM model ############
 
 class RBM():
@@ -57,8 +52,7 @@ class RBM():
        
 ###### sampling hidden units from visible data  #########
     def sample_hidden(self, visible_probabilities):
-	
-        if self.weights.shape == adj_matrix_tensor.shape:
+	if self.weights.shape == adj_matrix_tensor.shape:
            self.weights = self.weights * adj_matrix_tensor
         else:
 	   self.weights = self.weights
@@ -96,7 +90,7 @@ class RBM():
 	
         hidden_activations = positive_hidden_probabilities 
 
-        for step in range(self.k):
+        for step in range(self.k): #### CD step
             visible_probabilities = self.sample_visible(hidden_activations)
             hidden_probabilities = self.sample_hidden(visible_probabilities)
             hidden_probabilities = drop_out(hidden_probabilities) 
@@ -129,8 +123,8 @@ class RBM():
         return error_final 
     
  ############ compute reconstruction of the visible data and the error  
+    
     def compute_reconstruction_error(self, data):
-       
         data_transformed = self.sample_hidden(data) 
         data_reconstructed = self.sample_visible(data_transformed) 
         mse = torch.sum((data_reconstructed - data) ** 2)
@@ -149,6 +143,7 @@ class RBM():
         return random_probabilities
 
 ####### training of the RNM  model ###########
+
     def train(self,train_data , num_epochs = 10,batch_size= 64):
 
         BATCH_SIZE = batch_size
@@ -227,7 +222,7 @@ class DBN():
         '''
         train_data = train_data.cuda()
         tmp = train_data
-        probabilities = []
+        all_layers_probabilities = []
         weights_all_layers = []
         
         for i in range(len(self.rbm_layers)):
@@ -245,28 +240,34 @@ class DBN():
             layer_data = layer_data.cuda()
             layer_data = self.rbm_layers[i].forward(layer_data)
             layer_data = layer_data.cuda()
-            probabilities.append(layer_data)
+            all_layers_probabilities.append(layer_data)
             
             tmp = layer_data
             layer_data = layer_data.cpu()
             layer_data = layer_data.data.numpy()
             weights_all_layers.append(weights)
             print("layer_data.shape", layer_data[0:5, 0:5])
-        return probabilities
+        return all_layers_probabilities
 
 
+############ Loading Data######################	
+'path: path to input files'
+'all the input files must be in csv file format'
 
+input_data = pd.read_csv('path+ /gene_expression_data.csv', header = None) # input data has gene expression data and survival months
+adj_matrix = pd.read_csv('path + /adjacency_matrix.csv', header = None) # Load a bi-adjacency matrix of pathways and genes
 
 normalized_X = (input_data - np.mean(input_data, axis = 0))/np.std(input_data, axis = 0)
 train_array = normalized_X        
-print(train_array.shape)
+#print(train_array.shape)
 features = torch.from_numpy(train_array)
 labels = torch.from_numpy(months_index) 
+
 print('Training RBM...')
+
 dbn = DBN(num_visible = input_data.shape[1], num_hidden = [adj_matrix_p.shape[0], 500, 200, 2], k = 2, 
                           learning_rate = [0.0005, 0.05, 0.05, 0.005], momentum_coefficient = 0.2, 
                           weight_decay = 1e-4, use_cuda = True) 
 
 all_prob = dbn.train_static(gene_exp_data,  1500,  24) 
-#np.savetxt('/home/NewUsersDir/tmallava/pytorch/Results/PL_CUDA_DEVICE{0}.csv' .format((all_prob[-4].shape[1],j, [CUDA_DEVICE])),all_prob[-4].cpu().numpy(), delimiter = ',')
         
