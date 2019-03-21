@@ -14,12 +14,11 @@ Multiforme (GBM) and ovarian cancer.<br/>
 
 ## Pathway data
 [Pathway_databases](https://github.com/tmallava/PACL/blob/master/pathway(Gene).txt)<br/>
-Then gene expression data is preprocessed such that all the samples in gene expression data has respective survival months and survival status from clinical data.
-We considered the four pathway databases: Kyoto
-Encyclopedia of Genes and Genomes (KEGG), Reactome,
-Pathway Interaction Database (PID), and BioCarta for
-pathway-based analysis. The pathway databases were obtained
-from Molecular Signatures Database (MSigDB)
+
+After downloading the datasets, gene expression data is preprocessed such that all the samples in gene expression data has respective survival months and survival status from clinical data.<br/>
+We considered the four pathway databases: KEGG, Reactome, PID, and BioCarta for pathway-based analysis. <br/>
+Small pathways which include less than 15 genes were excluded to avoid substantial redundancy with large pathways, and also
+genes that have no association with pathways were not considered for the experiments.<br/>
 
 
 
