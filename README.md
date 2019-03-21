@@ -16,12 +16,14 @@ Multiforme (GBM) and ovarian cancer.<br/>
 [Pathway_databases](https://github.com/tmallava/PACL/blob/master/pathway(Gene).txt)<br/>
 
 After downloading the datasets, gbm gene expression data is preprocessed such that all the samples in gene expression data has respective survival months and survival status from gbm clinical data.<br/>
-We considered the four pathway databases: KEGG, Reactome, PID, and BioCarta for pathway-based analysis. <br/>
+From pathway data, we considered only four pathway databases: KEGG, Reactome, PID, and BioCarta for pathway-based analysis. <br/>
 Small pathways which include less than 15 genes were excluded to avoid substantial redundancy with large pathways, and also
 genes that have no association with pathways were not considered for the experiments.<br/>
-After the preprocessing, each cancer dataset has 998 pathways of 6,073 genes. The experiments were repeated ten times with randomly selecting 80% samples for reproducibility and robustness. For each experiment, data was normalized to mean of zero and a standard
-deviation of one.
-Similar procedure is followed for Ovarian cancer too.
+Similar procedure is followed for Ovarian cancer too.<br/>
+After the preprocessing, each cancer dataset has 998 pathways of 6,073 genes.<br/>
+The experiments were repeated ten times with randomly selecting 80% samples for reproducibility and robustness.<br/>
+For each experiment, data was normalized to mean of zero and a standard deviation of one.<br/>
+
 
 
 
