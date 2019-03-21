@@ -13,6 +13,7 @@ Multiforme (GBM) and ovarian cancer.<br/>
 [Ovarian_gene_expression.txt](https://github.com/cBioPortal/datahub/blob/master/public/ov_tcga/data_expression.txt)<br/> [Ovarian_clinical_data.txt](https://github.com/cBioPortal/datahub/blob/master/public/ov_tcga/data_bcr_clinical_data_patient.txt)<br/>
 
 ## Pathway data
+[Pathway_databases](https://github.com/tmallava/PACL/blob/master/pathway(Gene).txt)<br/>
 Then gene expression data is preprocessed such that all the samples in gene expression data has respective survival months and survival status from clinical data.
 We considered the four pathway databases: Kyoto
 Encyclopedia of Genes and Genomes (KEGG), Reactome,
