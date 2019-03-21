@@ -1,7 +1,6 @@
 # PACL
 We proposed a novel pathway-based deep clustering method (PACL) for molecular subtyping of cancer by incorporating gene expression and biological pathway database.<br/>
 PACL main contribution is to capture nonlinear associations between high-dimensional gene expression data and patients’ survivals and to interpret the model biologically.
-
 To evaluate performance of PACL, we conducted experiments with highdimensional gene expression data of patients in Glioblastoma
 Multiforme (GBM) and ovarian cancer.<br/>
 # Datasets:
