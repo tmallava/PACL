@@ -23,6 +23,8 @@ Similar procedure is followed for Ovarian cancer too.<br/>
 After the preprocessing, each cancer dataset has 998 pathways of 6,073 genes.<br/>
 The experiments were repeated ten times with randomly selecting 80% samples for reproducibility and robustness.<br/>
 For each experiment, data was normalized to mean of zero and a standard deviation of one.<br/>
+Then Silhouette score is used to determine the optimal number of clusters (i.e., the number of subtypes) and Kaplan-Meier survival analysis to identify the subtypes are clinically distinct. 
+
 
 
 
