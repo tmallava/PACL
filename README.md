@@ -26,7 +26,7 @@ The experiments were repeated ten times with randomly selecting 80% samples for 
 For each experiment, data was normalized to mean of zero and a standard deviation of one.<br/>
 
 # Results
-Then Silhouette score is used to determine the optimal number of clusters (i.e., the number of subtypes) and Kaplan-Meier survival analysis to identify the subtypes are clinically distinct. 
+Silhouette score is used to determine the optimal number of clusters (i.e., the number of subtypes) and Kaplan-Meier survival analysis to identify the subtypes are clinically distinct. 
 
 
 
